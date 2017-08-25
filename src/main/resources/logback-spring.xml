@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/moli-admin-monitor-biz.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/moli-admin-monitor-biz.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>200</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d %-5level [%thread] %C:%line - %msg%n</pattern>
+            <charset class="java.nio.charset.Charset">UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="INFO" />
+    <logger name="org.apache" level="INFO" />
+    <logger name="org.hibernate" level="INFO" />
+    <logger name="io.netty" level="INFO" />
+    <logger name="sun.net" level="INFO" />
+    <logger name="javax.activation" level="INFO" />
+
+    <root>
+        <level value="${logging.level.root}" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
