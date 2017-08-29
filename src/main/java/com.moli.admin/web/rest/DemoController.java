@@ -1,4 +1,4 @@
-package com.moli.admin.controller;
+package com.moli.admin.web.rest;
 
 import com.moli.admin.model.HelloMesage;
 import org.slf4j.Logger;
@@ -15,9 +15,9 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/demo")
-public class demoController {
+public class DemoController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(demoController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DemoController.class);
 
     @GetMapping("{userName}/say")
     public String sayHello(@Valid HelloMesage helloMesage, @PathVariable("userName") String userName){
